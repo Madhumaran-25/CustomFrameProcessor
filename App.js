@@ -1,4 +1,4 @@
-import 'react-native-reanimated'; // ✅ Must be first!
+import 'react-native-reanimated';
 
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
@@ -8,7 +8,6 @@ import { runOnJS } from 'react-native-reanimated';
 
 const plugin = VisionCameraProxy.initFrameProcessorPlugin('FrameDetector', {});
 
-// ✅ Frame processor must be a worklet
 function FrameDetector(frame) {
   'worklet';
   if (plugin == null) throw new Error('Plugin not loaded!');
@@ -19,7 +18,6 @@ const App = () => {
   const device = useCameraDevice('back');
   const [frameData, setFrameData] = useState(null);
 
-  // ✅ Callback must be memoized and outside the worklet
   const onFrameProcessorResult = useCallback((result) => {
     setFrameData(result);
   }, []);
