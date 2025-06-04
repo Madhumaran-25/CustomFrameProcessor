@@ -45,14 +45,7 @@ const App = () => {
         frameProcessor={frameProcessor}
         frameProcessorFps={5}
       />
-      {frameData && (
-        <View style={styles.infoBox}>
-          <Text style={styles.text}>Width: {frameData.width}</Text>
-          <Text style={styles.text}>Height: {frameData.height}</Text>
-          <Text style={styles.text}>Format: {frameData.pixelFormat}</Text>
-          <Text style={styles.text}>Timestamp: {frameData.timestamp}</Text>
-        </View>
-      )}
+  
     </View>
   );
 };
